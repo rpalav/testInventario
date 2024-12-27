@@ -1,5 +1,6 @@
 ﻿using API_Inventario.Util;
 using Datos_Inventario.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ namespace API_Inventario.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+    [Authorize]
     public class ProductoController : ControllerBase
     {
 

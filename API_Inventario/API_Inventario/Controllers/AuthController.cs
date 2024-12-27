@@ -1,4 +1,5 @@
 ﻿using Datos_Inventario.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Negocio_Inventario.Servicios;

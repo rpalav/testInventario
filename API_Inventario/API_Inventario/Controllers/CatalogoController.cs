@@ -9,7 +9,7 @@ namespace API_Inventario.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class CatalogoController : ControllerBase
     {
         private readonly IEstadoLoteRepositorio _estadoLoteRepositorio;
