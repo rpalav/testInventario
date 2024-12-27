@@ -1,0 +1,111 @@
+<div class="container my-4">
+
+
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Lote</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="loteForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label for="codigoLote" class="form-label">Codigo Lote</label>
+            <input
+              type="text"
+              id="codigoLote"
+              class="form-control"
+              formControlName="codigoLote"
+              placeholder="Ingrese el codigo del lote"
+            />
+          </div>
+
+
+          <div class="col-md-6 mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input
+              type="number"
+              id="precio"
+              class="form-control"
+              formControlName="precio"
+              placeholder="Ingrese el precio del producto"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input
+              type="number"
+              id="stock"
+              class="form-control"
+              formControlName="stock"
+              placeholder="Ingrese el stock del producto"
+            />
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="idEstadoLote" class="form-label">Estado Lote</label>
+
+            <select id="seleccion" class="form-control" formControlName="idEstadoLote">
+              <option value="0">Seleccione</option>
+              <option *ngFor="let opcion of estadosLote" [value]="opcion.id">{{ opcion.valor }}</option>
+            </select>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="stock" class="form-label">Producto</label>
+
+            <select id="seleccion" class="form-control" formControlName="idProducto">
+              <option value="0">Seleccione</option>
+              <option *ngFor="let producto of productos" [value]="producto.idProducto">{{ producto.nombre }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="fechaFabricacion" class="form-label">Fecha Fabricación</label>
+
+            <input
+            type="date"
+            id="fechaFabricacion"
+            class="form-control"
+            formControlName="fechaFabricacion"
+            placeholder="Ingrese la fecha de fabricación"
+          />
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label for="fechaVencimiento" class="form-label">Fecha Vencimiento</label>
+
+            <input
+            type="date"
+            id="fechaVencimiento"
+            class="form-control"
+            formControlName="fechaVencimiento"
+            placeholder="Ingrese la fecha de vencimiento"
+          />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!loteForm.valid">
+              Guardar
+            </button>
+            <button type="reset" class="btn btn-secondary ms-2 ml-3" (click)="resetForm()">
+              Limpiar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

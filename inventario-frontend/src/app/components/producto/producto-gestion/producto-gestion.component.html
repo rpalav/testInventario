@@ -1,0 +1,85 @@
+<div class="container my-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Producto</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <!-- ID Producto -->
+          <div class="col-md-6 mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              formControlName="nombre"
+              placeholder="Ingrese el nombre del producto"
+            />
+          </div>
+
+          <!-- ID Estado Producto -->
+          <div class="col-md-6 mb-3">
+            <label for="idEstadoProducto" class="form-label">Estado del Producto</label>
+
+            <select id="seleccion" class="form-control" formControlName="idEstadoProducto">
+              <option value="null">Seleccione</option>
+               <option *ngFor="let opcion of estadosProducto" [value]="opcion.id">{{ opcion.valor }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <!-- Descripción -->
+          <div class="col-md-6 mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea
+              id="descripcion"
+              class="form-control"
+              formControlName="descripcion"
+              placeholder="Ingrese la descripción"
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Imagen -->
+          <div class="col-md-6 mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input
+              type="file"
+              id="imagen"
+              class="form-control"
+              (change)="onImageSelected($event)"
+            />
+          </div>
+
+          <!-- Vista previa de la imagen -->
+          <div class="col-md-6 mb-3 d-flex justify-content-center align-items-center">
+            <img
+              *ngIf="previewImage"
+              [src]="previewImage"
+              alt="Vista previa"
+              class="img-fluid border rounded"
+              style="max-width: 200px; max-height: 200px;"
+            />
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="row">
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!productoForm.valid">
+              Guardar
+            </button>
+            <button type="reset" class="btn btn-secondary ms-2 ml-2" (click)="resetForm()">
+              Limpiar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
