@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let lote of lotesProductos">
+      <tr *ngFor="let lote of lotesProductos" [ngStyle]="{'background-color': lote.stock < 5 ? 'red' : ''}" >
         <td>{{ lote.idLote }}</td>
         <td>{{ lote.nombreProducto }}</td>
         <td>{{ lote.codigoLote }}</td>
